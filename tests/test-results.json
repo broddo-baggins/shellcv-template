@@ -1,0 +1,80 @@
+{
+  "lastRun": "2025-10-23T10:30:00Z",
+  "projectVersion": "1.0.0",
+  "testFramework": "jest",
+  
+  "summary": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "duration": 0,
+    "coverage": {
+      "statements": 0,
+      "branches": 0,
+      "functions": 0,
+      "lines": 0
+    }
+  },
+  
+  "suites": {
+    "game-engine": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "duration": 0,
+      "coverage": 0,
+      "tests": []
+    },
+    "encounter-logic": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "duration": 0,
+      "coverage": 0,
+      "tests": []
+    },
+    "save-load": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "duration": 0,
+      "coverage": 0,
+      "tests": []
+    },
+    "integration": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "duration": 0,
+      "coverage": 0,
+      "tests": []
+    }
+  },
+  
+  "failedTests": [],
+  
+  "warnings": [],
+  
+  "history": [
+    {
+      "timestamp": "2025-10-23T10:30:00Z",
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "coverage": 0
+    }
+  ],
+  
+  "notes": [
+    "This file is automatically updated by test runs",
+    "Each test suite should call updateTestResults() in afterAll()",
+    "Coverage thresholds defined in test-config.json",
+    "Run 'npm test' to populate this file with actual results"
+  ]
+}
+

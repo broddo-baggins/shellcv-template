@@ -1,0 +1,41 @@
+{
+  "name": "shellcv-template",
+  "version": "2.0.0",
+  "description": "ShellCV - Interactive terminal-style CV with AI agent, game, and modern features",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'No build needed - Node.js server'",
+    "test": "curl localhost:3333",
+    "setup": "node setup-shellcv.js"
+  },
+  "keywords": [
+    "resume",
+    "terminal",
+    "cv",
+    "portfolio",
+    "curl",
+    "ascii",
+    "shellcv",
+    "ai-agent",
+    "terminal-game"
+  ],
+  "author": "ShellCV Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shellcv/shellcv-template"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "ai": "^5.0.78",
+    "dotenv": "^17.2.3"
+  }
+}

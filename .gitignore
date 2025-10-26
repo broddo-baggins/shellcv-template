@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# Vercel
+.vercel
+
+# Personal career documents (not part of public template)
+Career_Documents/
+
+# Personal data files - use .example versions as templates
+assets/resume.txt
+assets/projects.txt
+assets/skills.txt
+
+# Test files that may contain API keys or personal usage
+test-hal-pm.js
+
+# Logs
+logs/
+*.log
+
+
+# Personal data files (users will customize these)
+# Keep .example.txt files tracked
+assets/resume.txt
+assets/skills.txt
+assets/projects.txt
+
+# Personal configuration
+.env
+.env.local
+.env.production
+
+# Test files with API usage
+test-hal-pm.js
+
+# Personal directories
+Career_Documents/
+PORTFOLIO_DEMO_PREP/

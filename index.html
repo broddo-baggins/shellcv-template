@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - ShellCV</title>
+    <meta name="description" content="Your Name - Interactive terminal-style resume with AI agent and modern features.">
+    
+    <!-- Optional: Prevent search engine indexing (remove these lines if you want to be indexed) -->
+    <!-- <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex"> -->
+    <!-- <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex"> -->
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn btn-close"></span>
+                <span class="btn btn-minimize"></span>
+                <span class="btn btn-maximize"></span>
+            </div>
+            <div class="terminal-title">zsh - yourdomain.com</div>
+        </div>
+        <div class="terminal-body">
+            <div class="shell-output" id="shellOutput"></div>
+            <div class="input-line" id="inputLine" style="display: none;">
+                <span class="prompt-path">~/yourdomain.com</span>
+                <span class="prompt-symbol">$</span>
+                <input type="text" id="commandInput" class="command-input" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+    
+    <footer class="page-footer">
+        <p>source: <a href="https://github.com/shellcv/shellcv-template" target="_blank">github.com/shellcv/shellcv-template</a></p>
+        <p>&copy; Your Name - ShellCV 2025</p>
+    </footer>
+    
+    <script src="terminal.js"></script>
+</body>
+</html>
+

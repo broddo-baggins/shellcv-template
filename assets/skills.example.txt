@@ -1,0 +1,57 @@
+TECHNICAL SKILLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROGRAMMING LANGUAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Language 1 (Expert)
+• Language 2 (Advanced)
+• Language 3 (Intermediate)
+• Language 4 (Familiar)
+
+FRAMEWORKS & LIBRARIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Frontend:
+• Framework 1, Framework 2, Framework 3
+• Library 1, Library 2, Library 3
+
+Backend:
+• Framework 1, Framework 2, Framework 3
+• Library 1, Library 2, Library 3
+
+DATABASES & STORAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Relational: PostgreSQL, MySQL, etc.
+• NoSQL: MongoDB, Redis, etc.
+• Cloud Storage: S3, Azure Blob, etc.
+
+CLOUD & INFRASTRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Cloud Platforms: AWS, Azure, GCP
+• Container & Orchestration: Docker, Kubernetes
+• CI/CD: GitHub Actions, Jenkins, CircleCI
+• IaC: Terraform, CloudFormation
+
+DEVELOPMENT TOOLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Version Control: Git, GitHub, GitLab
+• API Development: REST, GraphQL, gRPC
+• Testing: Jest, Pytest, Selenium
+• Monitoring: Datadog, New Relic, Prometheus
+
+PRODUCT & MANAGEMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Product Management: Roadmapping, User Stories, PRD Writing
+• Project Management: Agile, Scrum, Kanban
+• Analytics: Mixpanel, Amplitude, Google Analytics
+• Design Tools: Figma, Sketch, Adobe XD
+• Collaboration: Jira, Confluence, Notion, Slack
+
+SOFT SKILLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Technical Leadership & Mentorship
+• Cross-functional Team Collaboration
+• Stakeholder Management & Communication
+• Problem Solving & Critical Thinking
+• Data-Driven Decision Making
+• User-Centric Design Thinking
+

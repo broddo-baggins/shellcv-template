@@ -1,0 +1,23 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Explicitly set line endings for shell scripts
+*.sh text eol=lf
+
+# Documents
+*.md text
+*.txt text
+
+# Web files
+*.html text
+*.css text
+*.js text
+*.json text
+
+# Binary files
+*.svg binary
+*.ico binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+
