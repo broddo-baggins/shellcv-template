@@ -31,33 +31,17 @@ build/
 # Personal career documents (not part of public template)
 Career_Documents/
 
-# Personal data files - use .example versions as templates
+# Personal data files - users will customize these
 assets/resume.txt
 assets/projects.txt
 assets/skills.txt
 
-# Test files that may contain API keys or personal usage
+# Test files that may contain API keys
 test-hal-pm.js
+
+# Workspace files
+*.code-workspace
 
 # Logs
 logs/
 *.log
-
-
-# Personal data files (users will customize these)
-# Keep .example.txt files tracked
-assets/resume.txt
-assets/skills.txt
-assets/projects.txt
-
-# Personal configuration
-.env
-.env.local
-.env.production
-
-# Test files with API usage
-test-hal-pm.js
-
-# Personal directories
-Career_Documents/
-PORTFOLIO_DEMO_PREP/

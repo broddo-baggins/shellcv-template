@@ -232,7 +232,7 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6px;
-    margin: 12px 0;
+    margin: 8px 0;
     padding: 0;
     width: 100%;
     max-width: 100%;
@@ -285,7 +285,7 @@ a:hover {
 
 /* Legend Container */
 .legend-container {
-    margin: 12px 0 0 0;
+    margin: 10px 0 0 0;
     border: 1px solid #3a3a3a;
     border-radius: 2px;
     padding: 4px 6px;
