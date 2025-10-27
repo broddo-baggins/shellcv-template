@@ -13,7 +13,7 @@ body {
     padding: 0;
     margin: 0;
     line-height: 1.4;
-    font-size: 13px;
+    font-size: 10px;
     overflow-x: hidden;
 }
 
@@ -67,7 +67,7 @@ body {
     flex: 1;
     text-align: center;
     color: #8a8a8a;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 /* Terminal Body - ABSOLUTE CONTAINMENT */
@@ -79,7 +79,7 @@ body {
     max-height: 70vh;
     overflow-y: auto;
     overflow-x: hidden;
-    font-size: 13px;
+    font-size: 10px;
     line-height: 1.4;
     color: #d4d4d4;
     position: relative;
@@ -316,7 +316,7 @@ a:hover {
     border: none;
     color: #e0e0e0;
     font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-    font-size: 13px;
+    font-size: 10px;
     outline: none;
     flex: 1;
     caret-color: #61c9d2;
@@ -389,7 +389,7 @@ a:hover {
     body {
         padding: 0;
         margin: 0;
-        font-size: 12px;
+        font-size: 8px;
     }
     
     .terminal-container {
@@ -401,19 +401,19 @@ a:hover {
     
     .terminal-body {
         padding: 3px;
-        font-size: 12px;
+        font-size: 8px;
         min-height: 500px;
         height: 75vh;
         max-height: 75vh;
     }
     
     .ascii-logo-shadow {
-        font-size: 9px;
+        font-size: 8px;
         line-height: 0.85;
     }
     
     .ascii-logo {
-        font-size: 9px;
+        font-size: 8px;
         line-height: 0.85;
     }
     
@@ -444,7 +444,7 @@ a:hover {
     .info-box-header,
     .info-box-content,
     .legend-container pre {
-        font-size: 10px;
+        font-size: 9px;
         line-height: 1.1;
     }
 }
@@ -453,12 +453,12 @@ a:hover {
     body {
         padding: 0;
         margin: 0;
-        font-size: 11px;
+        font-size: 9px;
     }
     
     .terminal-body {
         padding: 2px;
-        font-size: 11px;
+        font-size: 9px;
         height: 80vh;
         max-height: 80vh;
     }
