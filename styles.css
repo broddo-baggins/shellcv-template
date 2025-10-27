@@ -13,7 +13,7 @@ body {
     padding: 0;
     margin: 0;
     line-height: 1.4;
-    font-size: 10px;
+    font-size: 11px;
     overflow-x: hidden;
 }
 
@@ -67,7 +67,7 @@ body {
     flex: 1;
     text-align: center;
     color: #8a8a8a;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 /* Terminal Body - ABSOLUTE CONTAINMENT */
@@ -79,7 +79,7 @@ body {
     max-height: 70vh;
     overflow-y: auto;
     overflow-x: hidden;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.4;
     color: #d4d4d4;
     position: relative;
@@ -316,7 +316,7 @@ a:hover {
     border: none;
     color: #e0e0e0;
     font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-    font-size: 10px;
+    font-size: 11px;
     outline: none;
     flex: 1;
     caret-color: #61c9d2;
