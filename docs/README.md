@@ -1,6 +1,6 @@
 # ShellCV Documentation
 
-Interactive terminal-based CV and PM Quest game.
+Interactive terminal-based CV and PM Dungeon Crawler: The Corporate Climb game.
 
 ## User Guides
 
@@ -14,7 +14,7 @@ Interactive terminal-based CV and PM Quest game.
 - **[Mobile Test Guide](user/MOBILE_TEST_GUIDE.md)** - Testing on mobile devices
 
 ### Game Documentation
-- **[PM Quest Game Guide](game/GAME_GUIDE.md)** - How to play the PM Quest game
+- **[PM Dungeon Crawler Game Guide](game/GAME_GUIDE.md)** - How to play the PM Dungeon Crawler game
 - **[Character Story](game/CHARACTER_STORY.md)** - Game narrative and lore
 
 ### Other
@@ -29,4 +29,4 @@ Interactive terminal-based CV and PM Quest game.
 
 **For Developers**: See [Deployment Guide](user/DEPLOYMENT_GUIDE.md) to set up your own instance.
 
-**For Players**: Jump into [PM Quest Guide](game/GAME_GUIDE.md) to start the game.
+**For Players**: Jump into [PM Dungeon Crawler Guide](game/GAME_GUIDE.md) to start the game.

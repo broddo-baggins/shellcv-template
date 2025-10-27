@@ -153,7 +153,7 @@ class ShellCV {
 › Try <span style="color: #98c379;">resume</span> to view my experience
 › Run <span style="color: #98c379;">projects</span> to explore my portfolio
 › Type <span style="color: #98c379;">crm</span> to launch the interactive demo
-› Use <span style="color: #98c379;">play</span> to start the PM Quest game
+› Use <span style="color: #98c379;">play</span> to start the PM Dungeon Crawler: The Corporate Climb game
 
 Try in any CLI/Terminal:
 $ curl yourdomain.com           Get this page
@@ -444,7 +444,7 @@ All links are clickable for easy connection.
 <span class="success">Usage:</span> play (or game)
 
 <span class="comment">Description:</span>
-Start PM Quest, an idle roguelike game simulating a Product Manager's journey.
+Start PM Dungeon Crawler: The Corporate Climb, an idle roguelike game simulating a Product Manager's journey.
 Battle stakeholders, manage sprints, and level up your PM skills!
 
 <span class="comment">Aliases:</span> game
@@ -550,7 +550,7 @@ The AI knows the entire ShellCV system and can help you navigate.
   <span class="success">projects</span>   View detailed project portfolio
   <span class="success">crm</span>        CRM Demo - showcasing my work with mock data
   <span class="success">contact</span>    Get contact information
-  <span class="success">play</span>       Start PM Quest (idle roguelike game)
+  <span class="success">play</span>       Start PM Dungeon Crawler (idle roguelike game)
   <span class="success">about</span>      Learn about this shell
   <span class="success">home</span>       Return to home page
   <span class="success">clear</span>      Clear screen
@@ -820,7 +820,7 @@ technical implementation with sanitized sample data.
     }
 
     async launchGame() {
-        await this.printOutput('<span style="color: #56b6c2;">Loading PM Quest...</span>');
+        await this.printOutput('<span style="color: #56b6c2;">Loading PM Dungeon Crawler: The Corporate Climb...</span>');
         
         try {
             // Load game scripts

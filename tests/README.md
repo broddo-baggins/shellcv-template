@@ -1,4 +1,4 @@
-# PM Quest - Testing Infrastructure
+# PM Dungeon Crawler: The Corporate Climb - Testing Infrastructure
 
 **Test-Driven Development** is mandatory for this project.
 

@@ -110,7 +110,7 @@ function getCurlHomePage() {
   › Try resume to view my experience
   › Run projects to explore my portfolio
   › Type crm to launch the interactive demo
-  › Use play to start the PM Quest game
+  › Use play to start the PM Dungeon Crawler: The Corporate Climb game
   
   Try in any CLI/Terminal:
   $ curl yourdomain.com           Get this page
@@ -259,7 +259,7 @@ function handleRequest(req, res) {
   } else if (url === '/play') {
     // Curl-friendly game info
     const playInfo = `
-PM QUEST: CORPORATE CLIMBER
+PM DUNGEON CRAWLER: THE CORPORATE CLIMB
 ============================
 
 An idle roguelike game where you climb from Associate PM to CPO.
@@ -283,7 +283,7 @@ Available Commands:
   curl amityogev.com/resume       Full resume/CV
   curl amityogev.com/skills       Technical skills
   curl amityogev.com/projects     Project portfolio
-  curl amityogev.com/play         PM Quest game info
+  curl amityogev.com/play         PM Dungeon Crawler game info
   curl amityogev.com/help         This help message
 
   Browser Interactive Mode: https://amityogev.com
@@ -294,7 +294,7 @@ Available Commands:
   skills      Technical skills breakdown
   projects    Project portfolio
   crm         CRM Demo - showcasing my work with mock data
-  play        PM Quest idle roguelike game
+  play        PM Dungeon Crawler idle roguelike game
   create      Learn how to build your own ShellCV in 2 minutes!
   clear       Clear terminal
   contact     Contact information

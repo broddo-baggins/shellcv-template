@@ -135,7 +135,7 @@ Your professional tagline or value proposition here (1-2 sentences)
 ### Project 2: PROJECT NAME
 [Repeat for each major project]
 
-## PM Quest Game (included in ShellCV)
+## PM Dungeon Crawler: The Corporate Climb Game (included in ShellCV)
 A text-based adventure game showcasing Product Management scenarios.
 **Features:**
 - Multiple PM career scenarios
@@ -150,7 +150,7 @@ and modern UX. Combines 90s hacker aesthetics with modern capabilities.
 
 **Key Features:**
 - AI-Powered Resume Agent (Agentic RAG with Google Gemini)
-- PM Quest - Interactive Career Game
+- PM Dungeon Crawler: The Corporate Climb - Interactive Career Game
 - CRM Demo Integration
 - Full curl API support
 - Context-aware session management
@@ -161,7 +161,7 @@ and modern UX. Combines 90s hacker aesthetics with modern capabilities.
 - \`resume\` - View full resume
 - \`skills\` - Technical skills breakdown
 - \`projects\` - Portfolio showcase
-- \`play\` - Start PM Quest game
+- \`play\` - Start PM Dungeon Crawler: The Corporate Climb game
 - \`crm\` - Launch CRM demo
 - \`ask <question>\` - Ask the AI agent anything
 
@@ -346,8 +346,8 @@ Type 'projects' for detailed information, or ask about a specific project.`;
         }
         
         // Game
-        if (q.includes('game') || q.includes('pm quest')) {
-            return `PM Quest is an interactive text-based adventure game included in ShellCV. It features Product Management scenarios, decision-making challenges, and career path exploration.
+        if (q.includes('game') || q.includes('pm quest') || q.includes('dungeon') || q.includes('crawler')) {
+            return `PM Dungeon Crawler: The Corporate Climb is an interactive text-based adventure game included in ShellCV. It features Product Management scenarios, decision-making challenges, and career path exploration.
 
 Type 'play' to start the game!`;
         }
@@ -379,7 +379,7 @@ Phone number is not publicly available. Please reach out via email or LinkedIn.`
 - \`resume\` - View full resume
 - \`skills\` - Technical skills
 - \`projects\` - Portfolio
-- \`play\` - PM Quest game
+- \`play\` - PM Dungeon Crawler game
 - \`crm\` - CRM demo
 - \`help\` - Full command list
 - \`ask <question>\` - Ask me anything

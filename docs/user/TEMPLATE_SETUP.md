@@ -1,13 +1,13 @@
 # ShellCV Template - Quick Setup Guide
 
-This is a template for creating your own interactive terminal-style resume with AI agent, PM Quest game, and curl API.
+This is a template for creating your own interactive terminal-style resume with AI agent, PM Dungeon Crawler game, and curl API.
 
 ## What is This?
 
 A complete interactive resume template featuring:
 - Terminal-style UI with 90s hacker aesthetics
 - AI-powered chat agent (Google Gemini)
-- PM Quest - Interactive career adventure game
+- PM Dungeon Crawler: The Corporate Climb - Interactive career adventure game
 - Full curl API for command-line access
 - Zero framework overhead - pure JavaScript
 
@@ -99,7 +99,7 @@ Done! Your interactive resume is live.
 Full documentation in `docs/` directory:
 
 - **[docs/user/ONBOARDING_GUIDE.md](docs/user/ONBOARDING_GUIDE.md)** - Complete setup guide
-- **[docs/game/GAME_GUIDE.md](docs/game/GAME_GUIDE.md)** - PM Quest game manual
+- **[docs/game/GAME_GUIDE.md](docs/game/GAME_GUIDE.md)** - PM Dungeon Crawler game manual
 - **[docs/user/COMMANDS.md](docs/user/COMMANDS.md)** - Command reference
 - **[docs/user/DEPLOYMENT_GUIDE.md](docs/user/DEPLOYMENT_GUIDE.md)** - Production deployment
 - **[docs/SECURITY.md](docs/SECURITY.md)** - Security best practices
@@ -135,7 +135,7 @@ NODE_ENV=production
 - Session management
 - Built-in rate limiting
 
-### PM Quest Game
+### PM Dungeon Crawler: The Corporate Climb Game
 - Text-based adventure
 - Real PM scenarios and frameworks
 - Career progression system
@@ -181,7 +181,7 @@ shellcv-template/
 │   ├── skills.txt         # Your skills
 │   └── projects.txt       # Your projects
 ├── game/
-│   ├── game-engine.js     # PM Quest engine
+│   ├── game-engine.js     # PM Dungeon Crawler engine
 │   ├── game-content.js    # Game scenarios
 │   └── game-renderer.js   # Game UI
 ├── docs/                  # Documentation

@@ -34,7 +34,7 @@ class GameRenderer {
   renderTitle() {
     return `<pre style="color: ${this.colors.warning}; font-size: 9px; line-height: 1.1; margin: 3px 0;">
 ╔═══════════════════════════════════════╗
-║    PM QUEST: CORPORATE CLIMBER        ║
+║  PM DUNGEON CRAWLER: CORPORATE CLIMB  ║
 ║  An Idle Roguelike Career Adventure   ║
 ╚═══════════════════════════════════════╝</pre>`;
   }

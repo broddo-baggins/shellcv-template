@@ -1,4 +1,4 @@
-# PM Quest - Complete Game Guide
+# PM Dungeon Crawler: The Corporate Climb - Complete Game Guide
 
 ## Table of Contents
 1. [Why This Game Exists](#why-this-game-exists)
@@ -18,7 +18,7 @@
 
 ## Why This Game Exists
 
-**PM Quest** was built to showcase Product Management expertise in an interactive, memorable way. Instead of just listing frameworks like RICE, OKRs, and AARRR on a resume, this game **teaches them through gameplay**.
+**PM Dungeon Crawler: The Corporate Climb** was built to showcase Product Management expertise in an interactive, memorable way. Instead of just listing frameworks like RICE, OKRs, and AARRR on a resume, this game **teaches them through gameplay**.
 
 ### The Problem
 - Traditional resumes are static and boring
@@ -72,7 +72,7 @@ Games like **A Dark Room**, **Candy Box**, and **Universal Paperclips** pioneere
 
 We adapted classic roguelike mechanics to Product Management:
 
-| Roguelike Element | PM Quest Adaptation |
+| Roguelike Element | PM Dungeon Crawler Adaptation |
 |------------------|-------------------|
 | **Hero battling monsters** | PM navigating corporate challenges |
 | **HP/Mana** | Energy/Credibility |
@@ -157,8 +157,8 @@ $ game
 
 ```
 ╔═══════════════════════════════════════╗
-║           PM QUEST                    ║
-║   Corporate Climber Simulator         ║
+║   PM DUNGEON CRAWLER                  ║
+║   The Corporate Climb                 ║
 ╚═══════════════════════════════════════╝
 
 [n] New Game - Start your PM journey
@@ -940,7 +940,7 @@ A: Yes! Share your save code with friends. They can continue your journey or jus
 
 ## Final Thoughts
 
-**PM Quest** is more than a game - it's a **playable demonstration** of Product Management expertise. Every encounter, every framework, every decision is drawn from real PM work.
+**PM Dungeon Crawler: The Corporate Climb** is more than a game - it's a **playable demonstration** of Product Management expertise. Every encounter, every framework, every decision is drawn from real PM work.
 
 If you enjoyed this game, it means you either:
 1. **Are a PM** and recognize these scenarios

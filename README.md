@@ -1,11 +1,11 @@
 # ShellCV - Interactive Terminal CV
 
-A unique, interactive terminal-based CV experience with an embedded PM Quest roguelike game.
+A unique, interactive terminal-based CV experience with an embedded PM Dungeon Crawler: The Corporate Climb roguelike game.
 
 ## Features
 
 - Interactive terminal interface with command-line CV exploration
-- PM Quest: A Product Manager career simulation game
+- PM Dungeon Crawler: The Corporate Climb - A Product Manager career simulation game
 - Dual-interface mode: Switch between terminal and visual layouts
 - Mobile-responsive design
 - Accessible with Nagishli integration
@@ -21,7 +21,7 @@ Visit the live site and type `help` to see available commands.
 - `skills` - View technical skills
 - `experience` - Browse work history
 - `projects` - Explore portfolio projects
-- `play` - Start PM Quest game
+- `play` - Start PM Dungeon Crawler: The Corporate Climb game
 - `contact` - Get in touch
 
 ## Documentation
@@ -29,7 +29,7 @@ Visit the live site and type `help` to see available commands.
 See the [docs](docs/) folder for detailed guides:
 
 - [User Commands](docs/user/COMMANDS.md)
-- [PM Quest Game Guide](docs/game/GAME_GUIDE.md)
+- [PM Dungeon Crawler Game Guide](docs/game/GAME_GUIDE.md)
 - [Deployment Guide](docs/user/DEPLOYMENT_GUIDE.md)
 
 ## Tech Stack

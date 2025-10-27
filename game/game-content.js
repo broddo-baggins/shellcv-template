@@ -1,4 +1,4 @@
-// PM Quest Game Content - Items, enemies, dialogue, and encounter system
+// PM Dungeon Crawler: The Corporate Climb Game Content - Items, enemies, dialogue, and encounter system
 // Encounters are loaded from modular files in /encounters/ directory
 
 const PMContent = {

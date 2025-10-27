@@ -1,4 +1,4 @@
-// PM Quest Game Engine - Core game logic and state management
+// PM Dungeon Crawler: The Corporate Climb Game Engine - Core game logic and state management
 
 class PMQuestEngine {
   constructor(shellInstance) {
@@ -73,7 +73,7 @@ class PMQuestEngine {
     this.printOutput(`<div style="margin: 6px 0;">
 <pre style="color: #98c379;">
 ╔═══════════════════════════════════════╗
-║      WELCOME TO PM QUEST!             ║
+║  WELCOME TO PM DUNGEON CRAWLER!       ║
 ╚═══════════════════════════════════════╝
 </pre>
 <div style="color: #61afef; margin: 3px 0; font-weight: bold;">
@@ -995,7 +995,7 @@ ${this.renderer.renderInventory(this.state.inventory)}
 
   // Exit game back to resume
   exitGame() {
-    this.printOutput('<div style="color: #98c379;">Thanks for playing PM Quest! Returning to resume...</div>');
+    this.printOutput('<div style="color: #98c379;">Thanks for playing PM Dungeon Crawler: The Corporate Climb! Returning to resume...</div>');
     this.gameMode = 'exited';
     if (this.shell) {
       this.shell.gameActive = false;
