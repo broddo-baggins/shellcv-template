@@ -13,7 +13,10 @@ const BossEncounters = [
       { text: 'Quick walkthrough', energy: -10, credibility: +10, xp: 30, success: 0.95 },
       { text: 'Delegate to engineer', credibility: -10, xp: 20, success: 0.8 }
     ],
-    reward: { item: 'jira_sword', xp: 100, credibility: +20 }
+    reward: { item: 'jira_sword', xp: 100, credibility: +20 },
+    successMessages: [
+      'You claim the Jira Sword of Prioritization. Meetings part before you.'
+    ]
   },
   {
     id: 'release_crisis',
@@ -26,7 +29,10 @@ const BossEncounters = [
       { text: 'Feature flag disable', energy: -20, credibility: +20, xp: 45, success: 0.9 },
       { text: 'Monitor and patch', energy: -25, credibility: -15, xp: 30, success: 0.6 }
     ],
-    reward: { item: 'analytics_blade', xp: 150, budget: +25000 }
+    reward: { item: 'analytics_blade', xp: 150, budget: +25000 },
+    successMessages: [
+      'You unsheathe the Analytics Blade. Graphs now fear you.'
+    ]
   },
   {
     id: 'the_pivot',

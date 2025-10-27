@@ -1,546 +1,466 @@
 # ShellCV Deployment Guide
 
-Complete guide to deploying your terminal CV to production.
+This guide covers deploying both the template (public) and your personal site (private).
 
----
+## Overview
 
-## Quick Deploy (3 Steps)
+**Two Repository Strategy:**
+1. **ShellCV-Template** - Public template with no personal data
+2. **your-name-cv** - Your private personal site with actual resume content
 
-### Step 1: Install & Login to Vercel
+## Part 1: Setting Up ShellCV Template (Public)
 
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Login (opens browser)
-vercel login
-```
-
-Choose "Continue with GitHub" and authorize Vercel.
-
-### Step 2: Deploy to Production
+### Step 1: Create Template Repository
 
 ```bash
-cd /path/to/your/shellcv
-vercel --prod
-```
+# Clone current repo
+git clone https://github.com/your-username/ShellCV.git shellcv-template
+cd shellcv-template
 
-**Answer prompts:**
-- Set up and deploy? → `Y`
-- Which scope? → Your account (press Enter)
-- Link to existing project? → `N`  
-- Project name? → `shellcv` (or press Enter)
-- Directory? → `./` (press Enter)
-- Override settings? → `N`
+# Remove existing git history
+rm -rf .git
 
-**Result:** You get a URL like `https://shellcv.vercel.app`
-
-### Step 3: Test Your Deployment
-
-```bash
-# Test with curl
-curl https://your-url.vercel.app
-
-# Open in browser
-open https://your-url.vercel.app
-```
-
----
-
-## Custom Domain Setup
-
-### If you have a domain (e.g., yourdomain.com):
-
-#### A. Add Domain in Vercel
-
-1. Go to: https://vercel.com/dashboard
-2. Click your project
-3. Settings → Domains
-4. Click "Add Domain"
-5. Enter your domain (e.g., `yourdomain.com`)
-6. Click "Add"
-
-Vercel will show DNS records you need:
-```
-Type: A
-Name: @
-Value: 76.76.21.21 (example - use your actual value)
-
-Type: CNAME
-Name: www
-Value: cname.vercel-dns.com
-```
-
-#### B. Update Your DNS Provider
-
-**For GoDaddy:**
-1. Go to: https://account.godaddy.com/
-2. My Products → Find your domain → DNS
-3. Delete old A and CNAME records for @ and www
-4. Add new records from Vercel:
-
-**A Record:**
-```
-Type: A
-Name: @ (or blank)
-Value: [from Vercel]
-TTL: 600
-```
-
-**CNAME Record:**
-```
-Type: CNAME
-Name: www
-Value: cname.vercel-dns.com
-TTL: 600
-```
-
-5. Save and wait 10-60 minutes for DNS propagation
-
-**For Other Providers (Cloudflare, Namecheap, etc.):**
-- Same process: Add A record pointing to Vercel's IP
-- Add CNAME for www pointing to `cname.vercel-dns.com`
-
-#### C. Verify DNS Propagation
-
-```bash
-# Check DNS
-nslookup yourdomain.com
-
-# Test when ready
-curl yourdomain.com
-```
-
-Check worldwide: https://dnschecker.org/#A/yourdomain.com
-
----
-
-## Deployment Options
-
-### Option 1: Vercel CLI (Recommended)
-
-**Pros:**
-- Fast and simple
-- Full control
-- Works from terminal
-
-**Cons:**
-- Manual deployment (unless you set up CI/CD)
-
-```bash
-# Every update:
-git commit -am "Update content"
-vercel --prod
-```
-
-### Option 2: GitHub + Vercel Integration
-
-**Pros:**
-- Auto-deploy on every push
-- No manual deployment
-- Built-in previews for PRs
-
-**Cons:**
-- Requires GitHub account
-- One-time setup
-
-**Setup:**
-1. Push code to GitHub
-2. Go to: https://vercel.com/new
-3. Import your GitHub repo
-4. Vercel auto-configures
-5. Every `git push` triggers deployment!
-
-### Option 3: Other Platforms
-
-**Railway:**
-- https://railway.app
-- Free tier available
-- Auto-detects Node.js
-- Connect GitHub repo
-
-**Render:**
-- https://render.com
-- Free tier available
-- Connect GitHub
-- Build: `npm install`
-- Start: `npm start`
-
-**Heroku:**
-- https://heroku.com
-- Classic platform
-- Requires `Procfile`
-- Good documentation
-
----
-
-## Post-Deployment
-
-### Update Content
-
-**Local Development:**
-```bash
-# Edit content files
-nano Career_Documents/resume.txt
-nano Career_Documents/skills.txt
-nano Career_Documents/projects.txt
-
-# Test locally
-node server.js
-
-# If good, deploy
+# Initialize new repository
+git init
 git add .
-git commit -m "Update resume"
-git push  # Auto-deploys if GitHub integration
-# OR
-vercel --prod  # Manual deploy
+git commit -m "INIT: ShellCV Template v2.0.0"
 ```
 
-### Monitor Performance
+### Step 2: Create GitHub Repository
 
-**Vercel Dashboard:**
-- https://vercel.com/dashboard
-- View deployment status
-- Check analytics
-- Monitor errors
-- See bandwidth usage
+1. Go to GitHub and create new repository: `shellcv-template`
+2. Make it **PUBLIC**
+3. Don't initialize with README (you already have one)
 
-### Set Up Analytics (Optional)
-
-**Vercel Analytics:**
 ```bash
-npm install @vercel/analytics
+# Add remote and push
+git remote add origin https://github.com/your-username/shellcv-template.git
+git branch -M main
+git push -u origin main
 ```
 
-Add to your `index.html`:
+### Step 3: Verify Template
+
+Check that these files are present and template-ized:
+- [ ] `README.template.md` - Template instructions
+- [ ] `ai-agent.template.js` - Template AI agent
+- [ ] `assets/resume.example.txt` - Example resume
+- [ ] `assets/skills.example.txt` - Example skills
+- [ ] `assets/projects.example.txt` - Example projects
+- [ ] `.gitignore` - Excludes personal data files
+
+Check that personal data is NOT in the repo:
+- [ ] No `assets/resume.txt` (should be in .gitignore)
+- [ ] No `assets/skills.txt` (should be in .gitignore)
+- [ ] No `assets/projects.txt` (should be in .gitignore)
+- [ ] No `ai-agent.js` with real data
+- [ ] No real API keys or `.env` files
+
+## Part 2: Setting Up Your Personal Site (Private)
+
+### Step 1: Create Personal Repository
+
+```bash
+# Navigate to your current ShellCV with personal data
+cd /path/to/your/ShellCV
+
+# Ensure all personal data is committed
+git add .
+git commit -m "FINAL: Complete personal site before split"
+```
+
+### Step 2: Create Private GitHub Repository
+
+1. Go to GitHub and create new repository: `your-name-cv` or `yourdomain.com`
+2. Make it **PRIVATE**
+3. Don't initialize with README
+
+```bash
+# Update remote to point to new private repo
+git remote set-url origin https://github.com/your-username/your-name-cv.git
+git push -u origin main
+```
+
+### Step 3: Update Repository Links
+
+In your **private** repo, update these files to point to the template:
+
+**index.html:**
 ```html
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
+<footer class="page-footer">
+    <p>source: <a href="https://github.com/your-username/shellcv-template">shellcv-template</a></p>
+    <p>&copy; Your Name - ShellCV 2025</p>
+</footer>
 ```
 
----
+**README.md:**
+```markdown
+# Your Name - Professional CV
 
-## Troubleshooting
+Private repository for my personal ShellCV site.
 
-### Vercel Login Issues
+## Based On
+Built with [ShellCV Template](https://github.com/your-username/shellcv-template)
 
+## Deployment
+Deployed to: https://yourdomain.com
+```
+
+Commit and push:
 ```bash
-# Logout and try again
-vercel logout
-vercel login
+git add index.html README.md
+git commit -m "UPDATE: Point to public template repo"
+git push
 ```
 
-### Deployment Fails
+## Part 3: Deploying to Vercel
 
-**Check logs:**
-```bash
-vercel logs [deployment-url]
-```
+### For Personal Site (Private Repo)
 
-**Common issues:**
-- Missing `package.json` or `server.js`
-- Wrong start command (should be `node server.js`)
-- Port issues (use `process.env.PORT || 3333`)
+1. **Connect Vercel to GitHub:**
+   - Go to [vercel.com](https://vercel.com)
+   - Sign in with GitHub
+   - Click "New Project"
 
-### DNS Not Updating
+2. **Select Your Private Repository:**
+   - Choose `your-name-cv` from the list
+   - If not visible, click "Adjust GitHub App Permissions" and grant access
 
-**After 2+ hours:**
-1. Delete ALL old DNS records for your domain
-2. Re-add ONLY Vercel's records
-3. Wait another hour
-4. Clear your DNS cache:
-   ```bash
-   # macOS
-   sudo dscacheutil -flushcache
-   sudo killall -HUP mDNSResponder
-   
-   # Windows
-   ipconfig /flushdns
-   
-   # Linux
-   sudo systemd-resolve --flush-caches
+3. **Configure Project:**
+   ```
+   Framework Preset: Other
+   Build Command: npm install (leave default)
+   Output Directory: (leave empty)
+   Install Command: npm install
    ```
 
-### SSL Certificate Issues
+4. **Add Environment Variables:**
+   - Click "Environment Variables"
+   - Add: `GOOGLE_GEMINI_API_KEY` with your API key
+   - Add: `NODE_ENV` = `production`
 
-**Vercel handles SSL automatically**, but if you see warnings:
-1. Wait 24 hours (cert provisioning takes time)
-2. Check domain is correctly configured
-3. Remove and re-add domain in Vercel dashboard
+5. **Deploy:**
+   - Click "Deploy"
+   - Wait for build to complete
+   - Get your deployment URL
 
-### Port Already in Use (Local)
+6. **Custom Domain (Optional):**
+   - Go to Project Settings → Domains
+   - Add your custom domain (e.g., `yourdomain.com`)
+   - Follow Vercel's DNS configuration instructions
 
-```bash
-# Find process using port 3333
-lsof -ti:3333
+### For Template (Public Repo) - Demo Site
 
-# Kill it
-kill -9 $(lsof -ti:3333)
+If you want to host a demo of the template:
 
-# Or change port in server.js
-const PORT = process.env.PORT || 4000;
-```
+1. Create a separate deployment in Vercel
+2. Use the **public** `shellcv-template` repository
+3. Don't add real API keys (use fallback responses for demo)
+4. Deploy to subdomain like `shellcv-demo.vercel.app`
 
----
+## Part 4: Deployment to Railway
 
-## Environment Variables
+### For Personal Site
 
-If you need environment variables (API keys, etc.):
+1. **Go to Railway:**
+   - Visit [railway.app](https://railway.app)
+   - Sign in with GitHub
 
-**In Vercel Dashboard:**
-1. Project → Settings → Environment Variables
-2. Add key-value pairs
-3. Redeploy for changes to take effect
+2. **New Project:**
+   - Click "New Project"
+   - Select "Deploy from GitHub repo"
+   - Choose your **private** repo
 
-**Example:**
-```
-Key: API_KEY
-Value: your-secret-key
-Environments: Production, Preview, Development
-```
+3. **Configure:**
+   - Railway auto-detects Node.js
+   - No build configuration needed
 
-**Access in code:**
-```javascript
-const apiKey = process.env.API_KEY;
-```
+4. **Environment Variables:**
+   - Go to Variables tab
+   - Add `GOOGLE_GEMINI_API_KEY`
+   - Add `PORT` (Railway provides this automatically, but you can override)
 
----
+5. **Deploy:**
+   - Railway deploys automatically
+   - Get your railway.app URL
+   - Can add custom domain in settings
 
-## CI/CD Setup (Advanced)
+## Part 5: Deployment to Render
 
-### GitHub Actions (Alternative to Vercel Integration)
+### For Personal Site
 
-Create `.github/workflows/deploy.yml`:
+1. **Go to Render:**
+   - Visit [render.com](https://render.com)
+   - Sign in with GitHub
 
-```yaml
-name: Deploy to Vercel
+2. **New Web Service:**
+   - Click "New +" → "Web Service"
+   - Connect your **private** repository
 
-on:
-  push:
-    branches: [main]
+3. **Configure:**
+   ```
+   Name: your-name-cv
+   Environment: Node
+   Build Command: npm install
+   Start Command: npm start
+   ```
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: amondnet/vercel-action@v20
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.ORG_ID }}
-          vercel-project-id: ${{ secrets.PROJECT_ID }}
-          vercel-args: '--prod'
-```
+4. **Environment Variables:**
+   - Add `GOOGLE_GEMINI_API_KEY`
+   - Add `NODE_ENV` = `production`
 
-**Get tokens:**
-1. Vercel Dashboard → Settings → Tokens
-2. Create new token
-3. Add to GitHub Secrets
+5. **Deploy:**
+   - Click "Create Web Service"
+   - Wait for deployment
+   - Get your .onrender.com URL
 
----
+## Part 6: Continuous Deployment
 
-## Performance Optimization
+### Automatic Deployments
 
-### Enable Caching
-
-In `vercel.json`:
-```json
-{
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
-        }
-      ]
-    }
-  ]
-}
-```
-
-### Compress Assets
-
-**Server-side:**
-```javascript
-const compression = require('compression');
-app.use(compression());
-```
-
-### Monitor Bundle Size
-
-```bash
-# Check file sizes
-ls -lh Career_Documents/
-ls -lh game/
-
-# Optimize if needed
-```
-
----
-
-## Security
-
-### HTTPS Only
-
-Vercel enforces HTTPS automatically. If you need to ensure it in code:
-
-```javascript
-app.use((req, res, next) => {
-  if (req.headers['x-forwarded-proto'] !== 'https' && process.env.NODE_ENV === 'production') {
-    return res.redirect('https://' + req.headers.host + req.url);
-  }
-  next();
-});
-```
-
-### Rate Limiting
-
-Add to `server.js`:
-```javascript
-const rateLimit = require('express-rate-limit');
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
-});
-
-app.use(limiter);
-```
-
----
-
-## Rollback
-
-### If Deployment Breaks
+All three platforms support automatic deployments:
 
 **Vercel:**
-1. Dashboard → Deployments
-2. Find last working deployment
-3. Click "..." → "Promote to Production"
+- Automatically deploys on every push to `main`
+- Preview deployments for PRs
+- Configure in Project Settings → Git
 
-**CLI:**
+**Railway:**
+- Auto-deploys on push to connected branch
+- Can configure deploy triggers
+- Settings → Service → Deploys
+
+**Render:**
+- Auto-deploys on every push
+- Configure in Settings → Build & Deploy
+- Can set up deploy hooks
+
+### Manual Deployments
+
+**Vercel CLI:**
 ```bash
-# List deployments
-vercel list
-
-# Rollback to specific deployment
-vercel rollback [deployment-url]
+npm install -g vercel
+vercel --prod
 ```
+
+**Railway CLI:**
+```bash
+npm install -g @railway/cli
+railway up
+```
+
+**Render:**
+Use the Render dashboard to trigger manual deploys.
+
+## Part 7: Managing Two Repositories
+
+### Workflow for Updates
+
+1. **Template Updates** (Public):
+   ```bash
+   cd shellcv-template
+   # Make changes to template files
+   git add .
+   git commit -m "FEAT: Add new template feature"
+   git push
+   ```
+
+2. **Personal Site Updates** (Private):
+   ```bash
+   cd your-name-cv
+   # Make changes to your personal content
+   git add .
+   git commit -m "UPDATE: Add new project to portfolio"
+   git push
+   # Vercel/Railway/Render auto-deploys
+   ```
+
+3. **Pulling Template Updates into Personal Site**:
+   ```bash
+   cd your-name-cv
+   
+   # Add template as remote
+   git remote add template https://github.com/your-username/shellcv-template.git
+   
+   # Fetch template changes
+   git fetch template
+   
+   # Merge specific files or features
+   git checkout template/main -- specific-file.js
+   
+   # Or create a branch to test
+   git checkout -b template-update
+   git merge template/main
+   # Resolve conflicts, keeping your personal data
+   git checkout main
+   git merge template-update
+   ```
+
+### Keeping Template Updated
+
+When you make improvements to your personal site that could benefit others:
+
+1. Extract the generic feature
+2. Remove personal data
+3. Apply to template repo
+4. Push to template
+5. Others can benefit from your improvements
+
+## Part 8: Security Checklist
+
+### Before Deploying
+
+- [ ] All API keys in environment variables, not code
+- [ ] `.env` file in `.gitignore`
+- [ ] Personal data files (`assets/*.txt`) in `.gitignore` (template only)
+- [ ] No phone numbers in public code
+- [ ] No sensitive company information
+- [ ] Test locally before deploying
+
+### After Deploying
+
+- [ ] Verify environment variables are set correctly
+- [ ] Test AI agent functionality
+- [ ] Check all commands work
+- [ ] Verify curl API endpoints
+- [ ] Test on mobile devices
+- [ ] Check console for errors
+- [ ] Verify custom domain (if configured)
+- [ ] Test rate limiting
+
+## Part 9: Monitoring & Maintenance
+
+### Vercel
+
+**Analytics:**
+- Project → Analytics tab
+- View page views, API calls, errors
+
+**Logs:**
+- Project → Logs tab
+- Real-time function logs
+- Filter by deployment
+
+### Railway
+
+**Metrics:**
+- Service → Metrics tab
+- CPU, Memory, Network usage
+
+**Logs:**
+- Service → Logs tab
+- Real-time stdout/stderr
+
+### Render
+
+**Logs:**
+- Service → Logs tab
+- Application logs and build logs
+
+**Metrics:**
+- Service → Metrics tab
+- Memory, CPU, response times
+
+### Common Issues
+
+**High API Usage:**
+- Monitor Gemini API usage at Google AI Studio
+- Implement stricter rate limiting
+- Cache common responses
+
+**Slow Response:**
+- Check Gemini API latency
+- Optimize session management
+- Consider adding Redis for session storage
+
+**Memory Leaks:**
+- Monitor memory usage
+- Check for unclosed sessions
+- Verify cleanup intervals running
+
+## Part 10: Updating After Initial Deployment
+
+### Updating Content
+
+**Personal Site:**
+```bash
+# Edit your resume/skills/projects
+nano assets/resume.txt
+nano assets/skills.txt
+nano assets/projects.txt
+
+# Update AI agent knowledge
+nano ai-agent.js
+# Update SYSTEM_CONTEXT with new experience
+
+# Commit and push
+git add assets/ ai-agent.js
+git commit -m "UPDATE: Add new project and skills"
+git push
+# Auto-deploys to production
+```
+
+### Updating Template
+
+**Template Repository:**
+```bash
+# Make improvements
+nano terminal.js  # e.g., add new feature
+
+# Update documentation
+nano README.template.md
+
+# Commit and push
+git add .
+git commit -m "FEAT: Add auto-complete for commands"
+git push
+```
+
+## Part 11: Rollback Procedures
+
+### Vercel Rollback
+
+1. Go to Project → Deployments
+2. Find previous successful deployment
+3. Click "..." menu → "Promote to Production"
+
+### Railway Rollback
+
+1. Go to Service → Deployments
+2. Click on previous deployment
+3. Click "Rollback to this version"
+
+### Render Rollback
+
+1. Go to Service → Events
+2. Find previous successful deploy
+3. Manually revert code and redeploy
+
+### Git Rollback
+
+```bash
+# View commits
+git log --oneline
+
+# Revert to specific commit
+git revert <commit-hash>
+git push
+
+# Or hard reset (dangerous!)
+git reset --hard <commit-hash>
+git push --force
+```
+
+## Support
+
+If you encounter issues:
+- Check deployment platform logs
+- Verify environment variables
+- Test locally first
+- Review [Troubleshooting Guide](./docs/TROUBLESHOOTING.md)
+- Open issue on [GitHub](https://github.com/your-username/shellcv-template/issues)
 
 ---
 
-## Cost Considerations
-
-### Vercel Free Tier Limits
-
-- **Bandwidth**: 100GB/month
-- **Executions**: 100GB-hours
-- **Builds**: Unlimited
-- **Domains**: Custom domains allowed
-- **SSL**: Free and automatic
-
-**When you exceed:**
-- Upgrade to Pro ($20/month)
-- Or switch to another platform
-
-### Cost Optimization Tips
-
-1. **Enable caching** (reduce bandwidth)
-2. **Compress assets** (smaller transfers)
-3. **Monitor usage** (Vercel dashboard)
-4. **Set up alerts** (email notifications)
-
----
-
-## Where to Share Your ShellCV
-
-Once deployed, share it everywhere:
-
-### Email Signature
-```
-Your Name | Your Title
-💻 curl yourname.com
-```
-
-### LinkedIn About
-```
-Check out my terminal CV: curl yourname.com
-```
-
-### Business Card
-```
-YOUR NAME
-💻 curl yourname.com
-```
-
-### Cover Letters
-```
-P.S. You can view my tech stack by running:
-curl yourname.com
-```
-
-### Twitter/X Bio
-```
-Product Manager | Developer
-💻 curl yourname.com
-```
-
-### GitHub README
-```markdown
-# Your Name
-
-Terminal CV: `curl yourname.com`
-```
-
----
-
-## Checklist
-
-### Pre-Deployment
-- [ ] Test locally (`node server.js`)
-- [ ] All content files updated
-- [ ] Git committed
-- [ ] No hardcoded secrets
-- [ ] Port uses `process.env.PORT`
-
-### Deployment
-- [ ] Vercel account created
-- [ ] Vercel CLI installed
-- [ ] Logged in (`vercel login`)
-- [ ] Deployed (`vercel --prod`)
-- [ ] URL works
-
-### Custom Domain
-- [ ] Domain added in Vercel
-- [ ] DNS records updated
-- [ ] DNS propagated (check dnschecker.org)
-- [ ] HTTPS works
-- [ ] www redirect works
-
-### Post-Deployment
-- [ ] Test `curl yourdomain.com`
-- [ ] Test browser access
-- [ ] Test mobile (DevTools)
-- [ ] Share on LinkedIn
-- [ ] Update resume with URL
-- [ ] Monitor analytics
-
----
-
-## Getting Help
-
-**Vercel Docs:** https://vercel.com/docs  
-**Vercel Support:** https://vercel.com/support  
-**Community:** https://github.com/vercel/vercel/discussions  
-**Status:** https://www.vercel-status.com/
-
----
-
-**Happy deploying!** 🚀
-
-*Your terminal CV is just `curl` away from being seen by the world.*
+**Success!** Your ShellCV is now live and your template is available for the community.
 

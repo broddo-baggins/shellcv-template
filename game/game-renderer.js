@@ -48,6 +48,11 @@ class GameRenderer {
     const xpProgress = PMCareer.getProgressToNextLevel(state.xp, state.level);
     const xpBar = this.generateProgressBar(xpProgress, 100);
 
+    // Generate contextual warnings
+    const warnings = this.generateContextualWarnings(state, levelData);
+    const runStats = this.generateRunStats(state);
+    const officeScene = this.generateOfficeScene(state);
+
     return `<pre style="color: ${this.colors.bright}; font-size: 10px; line-height: 1.4; font-family: monospace;">
 ┌─────────────────────────────────────────────┐
 │ <span style="color: ${this.colors.success};">${state.name || 'AMIT THE PM'}</span>      Level: <span style="color: ${this.colors.warning};">${state.level}</span> (<span style="color: ${this.colors.info};">${levelData.shortTitle}</span>)   │
@@ -60,7 +65,69 @@ class GameRenderer {
 ├─────────────────────────────────────────────┤
 │ XP: <span style="color: ${this.colors.warning};">${xpBar}</span> ${xpProgress}%       │
 │ Location: <span style="color: ${this.colors.info};">${levelData.dungeon}</span>        │
+├─────────────────────────────────────────────┤
+${officeScene}
+├─────────────────────────────────────────────┤
+${runStats}
+${warnings ? `├─────────────────────────────────────────────┤
+${warnings}` : ''}
 └─────────────────────────────────────────────┘</pre>`;
+  }
+
+  // Generate contextual warnings
+  generateContextualWarnings(state, levelData) {
+    const warnings = [];
+    
+    if (state.energy < levelData.stats.maxEnergy * 0.3) {
+      warnings.push(`│ <span style="color: ${this.colors.error};">⚠ Low Energy! Risk of burnout</span>          │`);
+    }
+    
+    if (state.credibility < 30) {
+      warnings.push(`│ <span style="color: ${this.colors.error};">⚠ Credibility Critical!</span>                 │`);
+    }
+    
+    if (state.morale < 40) {
+      warnings.push(`│ <span style="color: ${this.colors.warning};">⚠ Team Morale Low</span>                       │`);
+    }
+    
+    if (state.pressureMeter && state.pressureMeter > 70) {
+      warnings.push(`│ <span style="color: ${this.colors.error};">⚠ High Pressure! Act carefully</span>          │`);
+    }
+    
+    return warnings.length > 0 ? warnings.join('\n') : '';
+  }
+
+  // Generate run statistics
+  generateRunStats(state) {
+    const runTime = Math.floor((Date.now() - state.timestamp) / 60000);
+    return `│ <span style="color: ${this.colors.muted};">Decisions: ${state.decisionsCount || 0} | Encounters: ${state.encounterCount || 0}</span> │
+│ <span style="color: ${this.colors.muted};">Items: ${(state.inventory || []).length} | Run Time: ${runTime}m</span>      │`;
+  }
+
+  // Generate ASCII office scene based on state
+  generateOfficeScene(state) {
+    const scenes = {
+      low_energy: `│ <span style="color: ${this.colors.muted};">Scene: You slouch at your desk...</span>       │`,
+      high_cred: `│ <span style="color: ${this.colors.success};">Scene: Team looks to you for guidance</span>   │`,
+      crisis: `│ <span style="color: ${this.colors.error};">Scene: Slack notifications exploding!</span>    │`,
+      boss: `│ <span style="color: ${this.colors.warning};">Scene: Boss encounter approaching...</span>     │`,
+      calm: `│ <span style="color: ${this.colors.info};">Scene: Quiet office, focus time</span>          │`,
+      promotion: `│ <span style="color: ${this.colors.warning};">Scene: Executive watching your work</span>     │`
+    };
+
+    const levelData = PMCareer.getLevelData(state.level);
+    
+    if (state.energy < levelData.stats.maxEnergy * 0.3) {
+      return scenes.low_energy;
+    } else if (state.credibility > 80) {
+      return scenes.high_cred;
+    } else if (state.pressureMeter && state.pressureMeter > 60) {
+      return scenes.crisis;
+    } else if (state.level >= 5) {
+      return scenes.promotion;
+    } else {
+      return scenes.calm;
+    }
   }
 
   // Render encounter header
@@ -156,6 +223,33 @@ New Skills: ${levelData.skills.join(', ')}
 </div>`;
   }
 
+  // Render perk draft selection
+  renderPerkDraft(perks) {
+    return `<div style="margin: 6px 0; padding: 5px; border: 2px solid ${this.colors.primary}; background: rgba(97, 175, 239, 0.05);">
+<div style="color: ${this.colors.primary}; font-weight: bold; font-size: 12px; margin-bottom: 3px; text-align: center;">
+═══ CHOOSE YOUR PERK ═══
+</div>
+<div style="color: ${this.colors.muted}; font-size: 9px; margin-bottom: 5px; text-align: center;">
+Select a skill to enhance your PM abilities
+</div>
+${perks.map((perk, index) => `
+<div style="margin: 3px 0; padding: 3px; border-left: 3px solid ${this.colors.info}; background: rgba(86, 182, 194, 0.05);">
+  <div style="color: ${this.colors.bright};">
+    <span style="color: ${this.colors.primary}; font-weight: bold;">[${perk.id}]</span> 
+    <span style="color: ${this.colors.success};">${this.escapeHtml(perk.name)}</span>
+    <span style="color: ${this.colors.muted}; font-size: 9px;">(${this.escapeHtml(perk.category)})</span>
+  </div>
+  <div style="color: ${this.colors.muted}; font-size: 9px; margin-left: 10px;">
+    ${this.escapeHtml(perk.effect)}
+  </div>
+</div>
+`).join('')}
+<div style="margin-top: 5px; color: ${this.colors.muted}; font-size: 9px; text-align: center;">
+Type 1, 2, or 3 to choose your perk
+</div>
+</div>`;
+  }
+
   // Render inventory
   renderInventory(inventory) {
     if (!inventory || inventory.length === 0) {
@@ -164,13 +258,34 @@ New Skills: ${levelData.skills.join(', ')}
 
     let html = '<div style="margin: 3px 0;">';
     inventory.forEach(item => {
+      const itemColor = item.type === 'artifact' ? this.colors.warning : this.colors.info;
+      const itemIcon = item.type === 'artifact' ? '★' : '●';
       html += `<div style="margin: 2px 0; color: ${this.colors.bright};">
-  <span style="color: ${this.colors.success};">▸</span> ${this.escapeHtml(item.name)}
+  <span style="color: ${itemColor};">${itemIcon}</span> ${this.escapeHtml(item.name)}
   <span style="color: ${this.colors.muted}; font-size: 9px;">${this.escapeHtml(item.effect)}</span>
 </div>`;
     });
     html += '</div>';
     return html;
+  }
+
+  // Render loot acquisition
+  renderLootAcquired(loot) {
+    const borderColor = loot.type === 'artifact' ? this.colors.warning : this.colors.info;
+    const icon = loot.type === 'artifact' ? '★' : '●';
+    const typeLabel = loot.type === 'artifact' ? 'ARTIFACT' : 'ALLY';
+    
+    return `<div style="margin: 6px 0; padding: 5px; border: 2px solid ${borderColor}; background: rgba(97, 175, 239, 0.05);">
+<div style="color: ${borderColor}; font-weight: bold; text-align: center; font-size: 12px;">
+${icon} ${typeLabel} ACQUIRED ${icon}
+</div>
+<div style="color: ${this.colors.bright}; margin: 3px 0; text-align: center; font-size: 13px;">
+${this.escapeHtml(loot.name)}
+</div>
+<div style="color: ${this.colors.muted}; font-size: 10px; text-align: center; font-style: italic;">
+${this.escapeHtml(loot.effect)}
+</div>
+</div>`;
   }
 
   // Render save code display

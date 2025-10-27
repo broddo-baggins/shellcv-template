@@ -45,3 +45,7 @@ test-hal-pm.js
 # Logs
 logs/
 *.log
+# Internal documentation not synced to git
+
+.internal/
+

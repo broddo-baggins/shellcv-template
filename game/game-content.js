@@ -90,6 +90,14 @@ const PMContent = {
       'You gained the power of "I\'ll circle back on that."',
       'Sprint velocity: Fast. Technical debt: Faster.',
       'Congratulations! You\'ve unlocked: Imposter Syndrome.'
+    ],
+    crisisFailure: [
+      'Legal now knows your Slack handle.',
+      'Status page updated to "We\'re investigating." Forever.',
+      'Incident retro action item: Learn how to do incident retros.',
+      'Security added you to a calendar invite called "Forever."',
+      'New Jira epic created: "Clean up after the cleanup."',
+      'You\'re now the owner of the ownership doc.'
     ]
   },
 
@@ -106,18 +114,21 @@ const PMContent = {
   ],
 
   // Helper to get random encounter
-  getRandomEncounter(type, level) {
+  getRandomEncounter(type, level, currentDungeon = 1) {
     const encounters = this.encounters[type] || [];
     if (encounters.length === 0) return null;
     
     // Filter by appropriate difficulty for level
     let filtered = encounters;
+    
+    // Gate by dungeon progression if minDungeon is present
+    filtered = filtered.filter(e => !e.minDungeon || currentDungeon >= e.minDungeon);
     if (level <= 2) {
-      filtered = encounters.slice(0, Math.ceil(encounters.length / 2));
+      filtered = filtered.slice(0, Math.ceil(filtered.length / 2));
     }
     
     const index = Math.floor(Math.random() * filtered.length);
-    return { ...encounters[index] };
+    return { ...filtered[index] };
   },
 
   // Helper to get random event
