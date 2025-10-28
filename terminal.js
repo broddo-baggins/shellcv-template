@@ -32,6 +32,23 @@ class ShellCV {
         setTimeout(() => {
             this.scrollToBottom();
         }, 300);
+        
+        // Check for URL parameters and auto-execute commands
+        this.checkAndExecuteURLCommand();
+    }
+    
+    checkAndExecuteURLCommand() {
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const command = urlParams.get('cmd') || urlParams.get('command');
+        
+        if (command) {
+            // Auto-execute the command after a short delay (to feel natural)
+            setTimeout(() => {
+                this.commandInput.value = command;
+                this.handleCommand();
+            }, 500);
+        }
     }
 
     async showInitialLoad() {
