@@ -43,18 +43,18 @@ class ShellCV {
         const command = urlParams.get('cmd') || urlParams.get('command');
         
         if (command) {
-            // Auto-execute the command after a short delay (to feel natural)
+            // Auto-execute the command after page fully loads (wait for animation)
             setTimeout(() => {
                 this.commandInput.value = command;
                 this.handleCommand();
-            }, 500);
+            }, 1500);
         }
     }
 
     async showInitialLoad() {
         // Type the curl command with animation
         const curlCommand = document.createElement('div');
-        curlCommand.innerHTML = '<span class="prompt-path">~/amityogev.com</span> <span class="prompt-symbol">$</span> ';
+        curlCommand.innerHTML = '<span class="prompt-path">~/amityogev.com</span> <span class="prompt-symbol">$ </span>';
         this.shellOutput.appendChild(curlCommand);
         
         await this.typeText('curl amityogev.com', curlCommand);
@@ -263,7 +263,7 @@ $ curl yourdomain.com/help      Get the full list of endpoints</pre></div>`;
     printCommand(command) {
         const commandLine = document.createElement('div');
         commandLine.className = 'command-line';
-        commandLine.innerHTML = `<span class="prompt-path">~/amityogev.com</span> <span class="prompt-symbol">$</span> <span class="command-text">${this.escapeHtml(command)}</span>`;
+        commandLine.innerHTML = `<span class="prompt-path">~/amityogev.com</span> <span class="prompt-symbol">$ </span><span class="command-text">${this.escapeHtml(command)}</span>`;
         this.shellOutput.appendChild(commandLine);
     }
 
