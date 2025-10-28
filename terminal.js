@@ -43,11 +43,12 @@ class ShellCV {
         const command = urlParams.get('cmd') || urlParams.get('command');
         
         if (command) {
-            // Auto-execute the command after page fully loads (wait for animation)
+            // Wait for initial animation to complete before executing command
+            // Initial animation takes ~300ms + content rendering time
             setTimeout(() => {
                 this.commandInput.value = command;
                 this.handleCommand();
-            }, 1500);
+            }, 2000);
         }
     }
 
